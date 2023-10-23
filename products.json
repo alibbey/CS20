@@ -1,6 +1,12 @@
 
     [ 
             {
+                "Name" : "Gift Card",
+                "Price" : 25,
+                "Description" : "Perfect gift for upcoming birthdays or holidays",
+                "Category" : ["new"]
+            }
+            {
                 "Name" : "Collared Shirt",
                 "Size" : "medium", 
                 "Price" : 30,
@@ -78,11 +84,5 @@
                 "Description" : "Used men's size 8 black leather loafers",
                 "Category" : ["clothing"]
             },
-            {
-                "Name" : "Gift Card",
-                "Price" : 25,
-                "Description" : "Perfect gift for upcoming birthdays or holidays",
-                "Category" : ["new"]
-            }
     ]
 
