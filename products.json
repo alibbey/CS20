@@ -1,18 +1,25 @@
 
     [ 
             {
-                "Name" : "Men's Winter Coat",
-                "Size" : "Large",
-                "Price" : 90,
-                "Description" : "New gray men's winter coat, 100% wool",
-                "Category" : ["clothing","new"]
-            },
-            {
                 "Name" : "Collared Shirt",
                 "Size" : "medium", 
                 "Price" : 30,
                 "Description" : "White button down shirt",
                 "Category" : ["clothing"] 
+            },
+            {
+                "Name" : "Vase",
+                "Size" : "10 in x 20", 
+                "Price" : 20,
+                "Description" : "Hand-thrown pottery, made in Medford, MA",
+                "Category" : ["homegoods"] 
+            },
+            {
+                "Name" : "Men's Winter Coat",
+                "Size" : "Large",
+                "Price" : 90,
+                "Description" : "New gray men's winter coat, 100% wool",
+                "Category" : ["new", "clothing"]
             },
             {
                 "Name" : "Scarf",
@@ -27,13 +34,6 @@
                 "Price" : 60,
                 "Description" : "Maroon women's 10L pants, ribbed corderoy fabric", 
                 "Category" : ["clothing"]
-            },
-            {
-                "Name" : "Vase",
-                "Size" : "10 in x 20", 
-                "Price" : 20,
-                "Description" : "Hand-thrown pottery, made in Medford, MA",
-                "Category" : ["homegoods"] 
             },
             {
                 "Name" : "Couch",
@@ -69,7 +69,7 @@
                 "Size" : "3 ft x 4 ft", 
                 "Price" : 80,
                 "Description" : "Oak small side table, 1 drawer",
-                "Categories" : ["homegoods", "new"]
+                "Category" : ["homegoods", "new"]
             },
             {
                 "Name" : "Loafers",
