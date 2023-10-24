@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"   
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+	crossorigin="anonymous">
+     </script>
+     <style>
+        div {
+            display: inline-block;
+            margin: 10px;
+            font-size: 17px;
+        }
+        .product {
+            background-color: lightblue;
+            border-radius: 5px;
+            padding: 10px;
+            width: 400px;
+            height: 250px;
+        }
+        .size::before {
+            content: "Size: ";
+        }
+        .price::before {
+            content: "Price: $"
+        }
+        .category::before {
+            content: "Categories: "
+        }
+        h1 {
+            text-align: center;
+            background-color: lavender;
+            padding: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h1> Medford Market </h1>
+    <div> Select a category of goods: </div>
+    <div>
+    <select name= 'categories' id='categories'> 
+        <script> 
+        const categoryselect = [];
+        var t = "";
+
+        jdata = $.get("https://alibbey.github.io/CS20/products.json", function(data) {
+            console.log("Data: " + data);
+            var numcategories = 0;
+        
+            data.forEach(function(products){ 
+                if(numcategories < 3) {
+                    if(categoryselect[numcategories] != products.Category[0]) {
+                        var currentcategory = products.Category[0];
+                        categoryselect[numcategories] = currentcategory;
+                        console.log(categoryselect[numcategories]);
+                        numcategories++;
+                    }
+                } 
+            });
+            //alert(categoryselect[0]);
+            document.getElementById("categories").innerHTML = "<option> Filter by Category </option><option>" +
+                categoryselect[0] + "</option> <option>" +
+                categoryselect[1] +  " </option>  <option> " +
+                categoryselect[2] + "</option>";
+            
+            var value = "unfilled"; 
+            $(document).ready(function(){
+                $("#categories").change(function() {
+                    value = $("#categories").val();
+                    //alert(value);
+
+                    string = "<div>";
+
+                    data.forEach(function(products){
+                        //alert(value);
+                        if(products.Category[0] == value || products.Category[1] == value) {
+                            //alert("success");
+
+                            string += "<div class = 'product'>";
+			                string +=  "<h2 class = 'title'>" + products.Name + "</h2>";
+                            string +=  products.Description + " </br>";
+                            string +=  "<span class = 'size'>" + products.Size + " <span> </br>";
+                            string +=  "<span class = 'price'>" + products.Price + "<span> </br>";
+                            string +=  "<span class = 'category'>" + products.Category + " </br>";
+                            string += "</div>";
+                        }
+                    })
+                    string += "<div>";
+
+                    document.getElementById('product-list').innerHTML = string;  
+
+                })
+            })
+        })
+
+        </script>
+    </select>
+    </div>
+    <div id = "product-list">&nbsp;</div>
+
+</body>
