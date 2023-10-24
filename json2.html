@@ -53,8 +53,13 @@
 
             document.getElementById('product-list').innerHTML = string;  
 
+            productstring = JSON.stringify(data);
+            document.getElementById('string-list').innerHTML = productstring;
+            
+
         }) 
     </script>
     
     <div id = "product-list">&nbsp;</div>
+    <div id = "string-list">&nbsp;</div>
 </body>
