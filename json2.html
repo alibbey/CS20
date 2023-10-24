@@ -1,0 +1,60 @@
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"   
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+	crossorigin="anonymous">
+     </script>
+     <style>
+        div {
+            display: inline-block;
+            margin: 10px;
+            font-size: 17px;
+        }
+        .product {
+            background-color: lightblue;
+            border-radius: 5px;
+            padding: 10px;
+            width: 400px;
+            height: 250px;
+        }
+        .size::before {
+            content: "Size: ";
+        }
+        .price::before {
+            content: "Price: $"
+        }
+        .category::before {
+            content: "Categories: "
+        }
+     </style>
+
+</head>
+
+<body>
+    <script>
+        jdata = $.get("https://alibbey.github.io/CS20/products.json", function( data, status ) {
+            string = JSON.stringify(data)
+            console.log("Data: " + data + "\nStatus: " + status);
+
+            
+            string = "<div>";
+		
+            data.forEach(function(products){ 
+                console.log("it worked!")
+                string += "<div class = 'product'>";
+			    string +=  "<h2 class = 'title'>" + products.Name + "</h2>";
+                string +=  products.Description + " </br>";
+                string +=  "<span class = 'size'>" + products.Size + " <span> </br>";
+                string +=  "<span class = 'price'>" + products.Price + "<span> </br>";
+                string +=  "<span class = 'category'>" + products.Category + " </br>";
+                string += "</div>";
+			})
+	        string += "<div>";
+
+            document.getElementById('product-list').innerHTML = string;  
+
+        }) 
+    </script>
+    
+    <div id = "product-list">&nbsp;</div>
+</body>
